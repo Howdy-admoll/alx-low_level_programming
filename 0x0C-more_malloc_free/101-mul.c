@@ -37,7 +37,6 @@ int _isNumber(char *argv)
  * @size: size of element.
  * Return: pointer to array.
  **/
-
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *tab;
@@ -63,7 +62,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
  * @lena: length of array a3.
  * Return: pointer to array.
  **/
-
 void *mul_array(char *a1, int len1, char a2, char *a3, int lena)
 {
 	int mul = 0, i, k;
@@ -87,6 +85,7 @@ void *mul_array(char *a1, int len1, char a2, char *a3, int lena)
 
 	return (a3);
 }
+
 /**
  * print_array - print all digits of array.
  * @nb: number of elements to print.
@@ -113,7 +112,6 @@ void print_array(char *a, int nb)
  *@argv: array.
  *Return: 0.
  */
-
 int main(int argc, char *argv[])
 {
 	int i, c, len1, len2, lenres;
