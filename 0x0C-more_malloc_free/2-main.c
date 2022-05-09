@@ -32,7 +32,7 @@ void simple_print_buffer(char *buffer, unsigned int size)
 }
 
 /**
- * main - check the code for Holberton School students.
+ * main - check the code for ALX School students.
  *
  * Return: Always 0.
  */
@@ -40,7 +40,7 @@ int main(void)
 {
     char *a;
 
-    a = _calloc(402, sizeof(char));
+    a = _calloc(98, sizeof(char));
     strcpy(a, "Holberton");
     strcpy(a + 9, " School! :)\n");
     a[97] = '!';
