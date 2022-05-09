@@ -1,37 +1,60 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
+
+
+/**
+ * _memcpy - copies memory
+ * @dest: destination
+ * @src: source
+ * @n: size of memory to copy
+ *
+ * Return: Returns memory copied
+ */
+char *_memcpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+		dest[i] = src[i];
+	return (dest);
+}
 
 /**
  * _realloc - reallocates a memory block using malloc and free
- * @ptr: pointer to the memory previously allocated with a call to
- * malloc: malloc(old_size)
- * @old_size: the size, in bytes, of the allocated space for @ptr
- * @new_size: the new size, in bytes of the new memory block
- * Return: @ptr if @new_size == @old_size, NULL if new_size == 0 &&
- * @ptr != NULL
+ * @ptr: pointer to modify
+ * @old_size: current size of memory
+ * @new_size: size memory will now have
+ *
+ * Return: Pointer to reallocated memory
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-char *ar;
-char *oldar = ptr;
-unsigned int i;
-if (old_size == new_size)
-return (ptr);
-if (ptr == NULL)
-{
-ar = malloc(new_size);
-return (ar);
-}
-if (new_size == 0)
-{
-free(ptr);
-return (NULL);
-}
-ar = malloc(new_size);
-if (ar == NULL)
-return (NULL);
-for (i = 0; i < old_size; i++)
-ar[i] = oldar[i];
-free(oldar);
-return (ar);
+	void *ptr2;
+
+	if (old_size == new_size)
+		return (ptr);
+
+	if (ptr == NULL)
+	{
+		ptr2 = malloc(new_size);
+		if (ptr2 == 0)
+			return (0);
+		free(ptr);
+		return (ptr2);
+	}
+
+	if (new_size == 0 && ptr != NULL)
+	{
+		free(ptr);
+		return (0);
+	}
+
+	ptr2 = malloc(new_size);
+	if (ptr2 == 0)
+		return (0);
+
+	_memcpy(ptr2, ptr, old_size);
+	free(ptr);
+	return (ptr2);
 }
